@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block stylesheets%}
+    <style>
+    body{
+    background-color: #595959;
+    }
+
+    h1{
+    color: orange;
+    }
+
+    h2{
+    color: orange;
+    }
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+
+    <h1>Hej!!</h1>
+    <h2>Twoja szczesliwa liczba na dzis to: {{ random(100) }}</h2>
+
+{% endblock %}

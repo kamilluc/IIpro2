@@ -1,0 +1,45 @@
+
+{% block title %}
+    Lista uzytkownikow
+{% endblock %}
+
+{% block stylesheets%}
+    <style>
+        body{
+            background-color: #595959;
+        }
+
+        h1{
+            color: orange;
+        }
+
+        h2{
+            color: orange;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Użytkownik</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td><a href="/kamil/showuser/{{ user.login }}">{{ user.login }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

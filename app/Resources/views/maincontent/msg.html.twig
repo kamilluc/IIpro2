@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    {% for msg in msgs %}
+
+            <h3>{{ msg.usrLogin }}:  {{ msg.msg() }}</h3>
+
+    {% endfor %}
+<div class="form-group" style="margin-top: 30px">
+
+    <label for="usr">Nowa wiadomość:</label>
+    <input type="text" class="form-control" id="usr">
+    <button type="submit" class="btn btn-default">Wyślij</button>
+</div>
+{% endblock %}
