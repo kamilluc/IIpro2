@@ -668,3 +668,10 @@ FOOTER Styling
 .heart {
     color: red;
 }
+
+
+#mynavmenu{
+    color: orangered;
+    text-align: center;
+    text-decoration: solid;
+}

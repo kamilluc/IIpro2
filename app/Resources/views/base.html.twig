@@ -20,9 +20,18 @@
         <header class="header">
             <img class="logo-icon" src="{{ asset('images/aquanote-logo.png') }}">
             <h1 class="logo">AquaNote</h1>
+            {#<div class="list-group">#}
+                {#<a href="/kamil/main" class="list-group-item" style="display: inline-block; margin-top: 10px; margin-left: 20px;">Rozmowa</a>#}
+                {#<a href="/kamil/main" class="list-group-item" style="display: inline-block">Rozmowa</a>#}
+            {#</div>#}
             <ul class="navi">
-                <li class="search"><a href="#" class="js-header-search-toggle"><i class="fa fa-search"></i></a></li>
+
+                {#<li class="search"><a href="#" class="js-header-search-toggle"><i class="fa fa-search"></i></a></li>#}
+                <li><a href="/kamil/users">Lista Użytkowników</a></li>
+                <li style="margin-right: 100px"><a href="/kamil/main">Rozmowa</a></li>
+
                 <li><a href="/kamil/login">Login</a></li>
+                <li><a href="/kamil/rejestracja">Rejestracja</a></li>
             </ul>
         </header>
 
