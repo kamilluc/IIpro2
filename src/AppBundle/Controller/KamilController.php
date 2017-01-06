@@ -41,7 +41,7 @@ class KamilController extends Controller
         $em->persist($user);
         $em->flush();
 
-        return new Response('Uzytkownik zostal dodany!');
+        return new Response('Uzytkownik zostal dodany pomyslnie!');
     }
 
     /**
