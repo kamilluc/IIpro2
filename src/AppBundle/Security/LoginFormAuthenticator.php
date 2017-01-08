@@ -25,15 +25,26 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 private $em;
 private $router;
 private $formFactory;
+
     public function _construct(FormFactoryInterface $formFactory, EntityManager $em, RouterInterface $router){
         $this->formFactory=$formFactory;
         $this->em=$em;
         $this->router=$router;
     }
 
+
+    public function getUser($credentials, UserProviderInterface $userProvider)
+    {
+        $username=$credentials['_username'];
+        return $this->em->getRepository('AppBundle:User')->findOneBy(['login'=>$username]);
+
+        // TODO: Implement getUser() method.
+    }
+
+
     public function getCredentials(Request $request)
     {
-        $isLoginSubmit = $request->getPathInfo() == '/login' && $request->isMethod('POST');
+        $isLoginSubmit = $request->getPathInfo() == '/kamil/login' && $request->isMethod('POST');
         if (!$isLoginSubmit) {
             // skip authentication
             return;
@@ -42,23 +53,15 @@ private $formFactory;
         $form->handleRequest($request);
 
         $data=$form->getData();
-        $request->getSession()->set(Security::LAST_USERNAME, $data['_username']);
+        //$request->getSession()->set(Security::LAST_USERNAME, $data['_username']);
         return $data;
         // TODO: Implement getCredentials() method.
-    }
-
-    public function getUser($credentials, UserProviderInterface $userProvider)
-    {
-        $useraname=$credentials['_username'];
-        return $this->em->getRepository('AppBundle:User')->findOneBy(['name'=>$useraname]);
-
-        // TODO: Implement getUser() method.
     }
 
     public function checkCredentials($credentials, UserInterface $user)
     {
         $password=$credentials['_password'];
-        if ($password == 'iliketurtles') {
+        if ($password == '123') {
             return true;
         }
         return false;
@@ -73,7 +76,7 @@ private $formFactory;
 
     protected function getDefaultSuccessRedirectUrl()
     {
-        return $this->router->generate('homepage');
+        return $this->router->generate('/kamil/main');
 
         // TODO: Implement getLoginUrl() method.
     }

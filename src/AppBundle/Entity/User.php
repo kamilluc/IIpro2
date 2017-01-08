@@ -1,69 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Kamil
- * Date: 04.12.2016
- * Time: 21:45
- */
+// src/AppBundle/Entity/User.php
 
 namespace AppBundle\Entity;
 
-
-use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="fos_user")
  */
-class User implements UserInterface
+class User extends BaseUser
 {
     /**
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $name;
-    /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
-    //private $pass;
-    public function getRoles()
+    public function __construct()
     {
-        return ['ROLE_USER'];
-        // TODO: Implement getRoles() method.
+        parent::__construct();
+        // your own logic
     }
-
-    public function getPassword()
-    {
-      //  return $this->pass;
-        // TODO: Implement getPassword() method.
-    }
-
-    public function getSalt()
-    {
-        // TODO: Implement getSalt() method.
-    }
-
-    public function getUsername()
-    {
-        return $this->name;
-        // TODO: Implement getUsername() method.
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
-    }
-
 }

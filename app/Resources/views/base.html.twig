@@ -31,13 +31,13 @@
                 <li style="margin-right: 100px"><a href="/kamil/main">Rozmowa</a></li>
 
                 {% if is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('security_logout') }}">Logout</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 {% else %}
-                    <li><a href="{{ path('security_login') }}">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                 {% endif %}
 
                 {#<li><a href="/kamil/login">Login</a></li>#}
-                <li><a href="/kamil/rejestracja">Rejestracja</a></li>
+                <li><a href="/register">Rejestracja</a></li>
             </ul>
         </header>
 
