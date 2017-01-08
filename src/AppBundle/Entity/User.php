@@ -28,6 +28,8 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    //private $pass;
     public function getRoles()
     {
         return ['ROLE_USER'];
@@ -36,6 +38,7 @@ class User implements UserInterface
 
     public function getPassword()
     {
+      //  return $this->pass;
         // TODO: Implement getPassword() method.
     }
 

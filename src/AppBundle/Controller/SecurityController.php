@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Form\LoginForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -23,17 +24,35 @@ public function loginAction(){
     $error = $authenticationUtils->getLastAuthenticationError();
     // last username entered by the user
     $lastUsername = $authenticationUtils->getLastUsername();
+//    return $this->render(
+//        'security/login.html.twig',
+//        array(
+//            // last username entered by the user
+//            'last_username' => $lastUsername,
+//            'error'         => $error,
+//        )
+//    );
+
+    $form=$this->createForm(LoginForm::class, [
+        '_username'=>$lastUsername,
+    ]);
+
     return $this->render(
         'security/login.html.twig',
         array(
-            // last username entered by the user
-            'last_username' => $lastUsername,
-            'error'         => $error,
+            'form'=>$form->createView(),
+            'error'=>$error,
         )
     );
-
 }
 
+    /**
+     * @Route("/kamil/logout", name="security_logout")
+     */
+    public function logoutAction()
+    {
+        throw new \Exception('this should not be reached!');
+    }
 
     /**
      * @Route("/kamil/main")
