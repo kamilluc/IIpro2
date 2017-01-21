@@ -18,6 +18,17 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+//    /**
+//     * @ORM\Column(type="string")
+//     */
+//    private $login;
+//    /**
+//     * @return mixed
+//     */
+//    public function getLogin()
+//    {
+//        return $this->login;
+//    }
 
     public function __construct()
     {

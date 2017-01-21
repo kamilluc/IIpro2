@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="users")
+ * @ORM\Table(name="fos_user")
  */
 class users
 {
@@ -40,15 +40,15 @@ class users
     private $password;
 
     /**
-     * @return mixed
-     */
+ * @return mixed
+ */
     public function getLogin()
     {
         return $this->login;
     }
 
     /**
-     * @param mixed $login
+     * @param mixed $username
      */
     public function setLogin($login)
     {

@@ -1,5 +1,27 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<head>
+    <link rel=”stylesheet” href=”{{ asset('css/widgEditor.css') }}”>
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+    <script type="text/javascript" src="{{ asset('scripts/widgEditor.js') }}"></script>
+</head>
+{% endblock %}
+{#{% block stylesheets %}#}
+{#<link rel=”stylesheet” href=”{{ asset('css/widgEditor.css') }}”>#}
+    {#<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">#}
+    {#<link rel="stylesheet" href="{{ asset('css/styles.css') }}">#}
+    {#<link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">#}
+
+
+{#{% endblock %}#}
+
+{#{% block javascripts %}#}
+    {#<script type="text/javascript" src="{{ asset('scripts/widgEditor.js') }}"></script>#}
+{#{% endblock %}#}
+{#<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">#}
 
 
 {% block body %}
@@ -8,10 +30,14 @@
             <h3>{{ msg.usrLogin }}:  {{ msg.msg() }}</h3>
 
     {% endfor %}
+
 <div class="form-group" style="margin-top: 40px">
 
     <label for="usr">Nowa wiadomość:</label>
         <input type="text" class="form-control" id="usr" style="width: 400px; height: 50px">
+    <textarea id=”widgEditor”>Some Sample Text</textarea>
+
+
     <button type="submit" class="btn btn-default">Wyślij</button>
 
 </div>

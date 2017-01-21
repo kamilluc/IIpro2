@@ -23,9 +23,27 @@ class KamilController extends Controller
      */
     public function listAction()
     {
-        $em=$this->getDoctrine()->getManager();
-        $users=$em->getRepository('AppBundle\Entity\users')->findAll();
-        return $this->render('kamil/list.html.twig', ['users' => $users]);
+        //$em=$this->getDoctrine()->getManager();
+     //   $users=$em->getRepository('AppBundle\Entity\User')->findAll();
+       //$users=$em->getRepository('fos_user.user_manager')->findAll();
+        //return $this->render('kamil/list.html.twig', ['users' => $users]);
+        $userManager = $this->get('fos_user.user_manager');
+        $users = $userManager->findUsers();
+
+        return $this->render('kamil/list.html.twig', array('users' =>   $users));
+
+    }
+
+    /**
+     * @    Route("/kamil/users2")
+     */
+    public function usersAction() {
+        //access user manager services
+        $userManager = $this->get('fos_user.user_manager');
+//$users=$userManager=$this->getUser()
+        $users = $userManager->findUsers();
+
+        return $this->render('kamil/list.html.twig', array('users' =>   $users));
     }
 
     /**
